@@ -1,0 +1,20 @@
+PODS:
+  - Alamofire (4.2.0)
+  - SwiftProtobuf (1.0.3)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.0)
+  - SwiftProtobuf
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - SwiftProtobuf
+
+SPEC CHECKSUMS:
+  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  SwiftProtobuf: 5ccc0e4054e37c75800e5744acb2aa80bb72b39c
+
+PODFILE CHECKSUM: 70a14fa103702c55f3d7851690ba57989ecd45eb
+
+COCOAPODS: 1.5.3
