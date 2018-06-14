@@ -47,6 +47,22 @@ class CardViewController: UIViewController {
     backButton.isHidden = isCurrentUser
 	}
 	
+  func fetchCurrentUser() {
+    RWService.shared.getCurrentUser { contact in
+      if let contact = contact {
+        self.configure(contact)
+      }
+    }
+  }
+  
+  func configure(_ contact: Contact) {
+    self.attendeeNameLabel.attributedText = NSAttributedString.attributedString(for: contact.firstName, and: contact.lastName)
+    self.twitterLabel.text = contact.twitterName
+    self.emailLabel.text = contact.email
+    self.githubLabel.text = contact.githubLink
+    self.profileImageView.image = UIImage(named: contact.imageName)
+  }
+  
 	// MARK: Appearance
 	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return .lightContent
