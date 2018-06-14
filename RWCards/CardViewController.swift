@@ -44,6 +44,11 @@ class CardViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		applyBusinessCardAppearance()
+    if isCurrentUser {
+      fetchCurrentUser()
+    } else {
+      // TODO: handle speaker
+    }
     backButton.isHidden = isCurrentUser
 	}
 	
@@ -61,6 +66,7 @@ class CardViewController: UIViewController {
     self.emailLabel.text = contact.email
     self.githubLabel.text = contact.githubLink
     self.profileImageView.image = UIImage(named: contact.imageName)
+    self.attendeeTypeLabel.text = contact.contactTypeToString()
   }
   
 	// MARK: Appearance
