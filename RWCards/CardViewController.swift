@@ -36,6 +36,8 @@ class CardViewController: UIViewController {
 	@IBOutlet var backButton: UIButton!
 	var isCurrentUser = true
 	
+  var speaker: Contact?
+  
 	// MARK: - Life Cycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -47,7 +49,9 @@ class CardViewController: UIViewController {
     if isCurrentUser {
       fetchCurrentUser()
     } else {
-      // TODO: handle speaker
+      if let speaker = speaker {
+        configure(speaker)
+      }
     }
     backButton.isHidden = isCurrentUser
 	}

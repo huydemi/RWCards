@@ -40,4 +40,15 @@ class RWService {
       completion(nil)
     }
   }
+  
+  func getSpeakers(_ completion: @escaping (Speakers?) -> ()) {
+    let path = "/speakers"
+    Alamofire.request("\(url)\(path)").responseData { response in
+      if let data = response.result.value {
+        let speakers = try? Speakers(serializedData: data)
+        completion(speakers)
+      }
+    }
+    completion(nil)
+  }
 }

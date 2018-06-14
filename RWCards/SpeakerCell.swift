@@ -45,4 +45,8 @@ class SpeakerCell: UITableViewCell {
 		applyBusinessCardVisual()
 	}
 	
+  func configure(with contact: Contact) {
+    profileImageView.image = UIImage(named: contact.imageName)
+    nameLabel.attributedText = NSAttributedString.attributedString(for: contact.firstName, and: contact.lastName)
+  }
 }

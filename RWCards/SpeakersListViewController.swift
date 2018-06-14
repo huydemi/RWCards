@@ -38,6 +38,13 @@ class SpeakersListViewController: UITableViewController {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+    
+    RWService.shared.getSpeakers { [unowned self] speakers in
+      if let speakers = speakers {
+        self.speakersModel = SpeakersViewModel(speakers: speakers)
+        self.tableView.reloadData()
+      }
+    }
 	}
 	
 	// MARK: - Navigation
@@ -45,6 +52,7 @@ class SpeakersListViewController: UITableViewController {
 		if segue.identifier == "showCard" {
 			if let vc = segue.destination as? CardViewController {
 				vc.isCurrentUser = false
+        vc.speaker = speakersModel?.selectedSpeaker
 				
 			}
 		}
@@ -62,14 +70,18 @@ extension SpeakersListViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "SpeakerCell", for: indexPath) as! SpeakerCell
-		return cell
+    let cell = tableView.dequeueReusableCell(withIdentifier: "SpeakerCell", for: indexPath) as! SpeakerCell
+    if let speaker = speakersModel?.getSpeaker(for: indexPath) {
+      cell.configure(with: speaker)
+    }
+    return cell
 	}
 }
 
 // MARK: - UITableView Delegate
 extension SpeakersListViewController {
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    speakersModel?.selectSpeaker(for: indexPath)
 		performSegue(withIdentifier: "showCard", sender: self)
 	}
 }
