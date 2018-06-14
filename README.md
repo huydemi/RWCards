@@ -5,40 +5,52 @@ In this Introduction to Protocol Buffers on iOS, you will learn:
 - xxx
 
 ##### Environment Setup
-pip: 
+pip
+
 ```
 sudo easy_install pip
 ```
 
-Flask:
+Flask
+
 ```
 sudo pip install Flask
 ```
 
-Python Protocol Buffer:
+Python Protocol Buffer
+
 ```
 sudo -H pip install protobuf --ignore-installed six
 ```
 
-Google Protocol Buffer:
+Google Protocol Buffer
+
 ```
 brew install protobuf
 ```
 
-Swift Protocol Buffer:
+Swift Protocol Buffer
+
 ```
 brew install swift-protobuf
 ```
 
 ##### Compile Structs
-Swift:
+Swift
+
 ```
 protoc --swift_out=. contact.proto
 ```
 
-Python:
+Python
+
 ```
 protoc -I=. --python_out=. ./contact.proto
+```
+
+##### Running the Local Server:
+```
+python RWServer.py
 ```
 
 ##### More:
