@@ -2,7 +2,10 @@
 
 In this Introduction to Protocol Buffers on iOS, you will learn:
 
-- xxx
+- the basic features of protocol buffers
+- how to define a .proto file and generate Swift code with the compiler
+- how to startup a small local server using Flask where you created a service to send a protocol buffer binary to the client
+- how effortless it was to deserialize the data
 
 ##### Environment Setup
 pip
@@ -53,13 +56,8 @@ protoc -I=. --python_out=. ./contact.proto
 python RWServer.py
 ```
 
-##### More:
-
-- UDP Sockets
-- [WebSockets](https://www.raywenderlich.com/143874/websockets-ios-starscream)
-
 ---
 
 Source:
 
-- [Real-Time Communication with Streams Tutorial for iOS](https://www.raywenderlich.com/157128/real-time-communication-streams-tutorial-ios)
+- [Introduction to Protocol Buffers on iOS](https://www.raywenderlich.com/149335/introduction-protocol-buffers-ios)
