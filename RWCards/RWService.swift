@@ -24,6 +24,20 @@ import Foundation
 import Alamofire
 
 class RWService {
-	static let shared = RWService()
-	private init() { }
+  
+  static let shared = RWService()
+  let url = "http://127.0.0.1:5000"
+  
+  private init() { }
+  
+  func getCurrentUser(_ completion: @escaping (Contact?) -> ()) {
+    let path = "/currentUser"
+    Alamofire.request("\(url)\(path)").responseData { response in
+      if let data = response.result.value {
+        let contact = try? Contact(serializedData: data)
+        completion(contact)
+      }
+      completion(nil)
+    }
+  }
 }
