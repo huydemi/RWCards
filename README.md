@@ -7,6 +7,8 @@ In this Introduction to Protocol Buffers on iOS, you will learn:
 - how to startup a small local server using Flask where you created a service to send a protocol buffer binary to the client
 - how effortless it was to deserialize the data
 
+![walkthrough](https://koenig-media.raywenderlich.com/uploads/2016/12/pb2-6.gif)
+
 ##### Environment Setup
 pip
 
